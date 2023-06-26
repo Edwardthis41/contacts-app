@@ -1,24 +1,16 @@
-<?php 
+<?php
+
+  require "database.php";
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $contact = [
-    "name" => $_POST["name"],
-    "phone_number" => $_POST["phone_number"],
-  ];
+    $name = $_POST["name"];
+    $phoneNumber = $_POST["phone_number"];
 
+    $statement = $connection->prepare("INSERT INTO contacts (name, phone_number) VALUES ('$name','$phoneNumber')");
+    $statement->execute();
 
-  if (file_exists("contacts.json")) {
-    $contacts = json_decode(file_get_contents("contacts.json"), true);
-  } else {
-    $contacts = [];
-  }
-  
-  $contacts [] = $contact;
-
-  file_put_contents("contacts.json", json_encode($contacts));
-
-  header("Location: index.php");
-}
-?>
+    header("Location: index.php");
+  } ?>
 
 <!DOCTYPE html>
 <html lang="en">
