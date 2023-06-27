@@ -2,14 +2,25 @@
 
   require "database.php";
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $phoneNumber = $_POST["phone_number"];
+  $error = null;
 
-    $statement = $connection->prepare("INSERT INTO contacts (name, phone_number) VALUES ('$name','$phoneNumber')");
-    $statement->execute();
-
-    header("Location: index.php");
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["name"]) || empty($_POST["phone_number"])) {
+        $error = "Please fill all the fields.";
+      } else if (strlen($_POST["phone_number"]) < 10){
+        $error = "Phone number must be at least 10 characters.";
+      } else {
+        $name = $_POST["name"];
+        $phoneNumber = $_POST["phone_number"];
+    
+        $statement = $connection->prepare("INSERT INTO contacts (name, phone_number) VALUES (:name,:phoneNumber)");
+        $statement->bindParam(":name", $_POST["$name"]);
+        $statement->bindParam(":phone_number", $_POST["$phone_number"]);
+        $statement->execute();
+    
+        header("Location: index.php");
+      }
+   
   } ?>
 
 <!DOCTYPE html>
@@ -68,6 +79,8 @@
       </div>
     </nav>
 
+
+
   <main>
     <div class="container pt-5">
       <div class="row justify-content-center">
@@ -75,12 +88,17 @@
           <div class="card">
             <div class="card-header">Add New Contact</div>
             <div class="card-body">
+              <?php if ($error): ?>
+                <p class="text-danger">
+                <?= $error ?>
+                </p>
+                <?php endif ?>
               <form method="post" action="add.php">
                 <div class="mb-3 row">
                   <label for="name" class="col-md-4 col-form-label text-md-end">Name</label>
     
                   <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autocomplete="name" autofocus>
+                    <input id="name" type="text" class="form-control" name="name" autocomplete="name" autofocus>
                   </div>
                 </div>
     
@@ -88,9 +106,10 @@
                   <label for="phone_number" class="col-md-4 col-form-label text-md-end">Phone Number</label>
     
                   <div class="col-md-6">
-                    <input id="phone_number" type="tel" class="form-control" name="phone_number" required autocomplete="phone_number" autofocus>
+                    <input id="phone_number" type="tel" class="form-control" name="phone_number" autocomplete="phone_number" autofocus>
                   </div>
                 </div>
+                
     
                 <div class="mb-3 row">
                   <div class="col-md-6 offset-md-4">

@@ -10,7 +10,7 @@
     },
     "files.insertFinalNewline": true,
     // para el tamaño de letra
-    "editor.fontSize": 20,
+    "editor.fontSize": 18,
     // para la linea de comando contral + ñ
     "editor.lineHeight": 26,
     // para hacer zoo
