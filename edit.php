@@ -34,7 +34,7 @@ require "database.php";
         ]);
      
     
-        header("Location: index.php");
+        header("Location: home.php");
       }
    
   } ?>
