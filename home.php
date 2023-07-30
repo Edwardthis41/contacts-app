@@ -1,7 +1,13 @@
 <?php
 // para buscar en todo los archivos control + ship + f, remplazar los . mas rapido
-
 require "database.php";
+
+session_start();
+
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php");
+  return;
+}
 
 $contacts = $connection->query("SELECT * FROM contacts");
 
