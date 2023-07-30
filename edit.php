@@ -46,8 +46,9 @@ if ($contact["user_id"] !== $_SESSION["user"]["id"]) {
           ":phone_number" => $_POST["phone_number"],
         ]);
      
-    
+        $_SESSION["flash"] = ["message" => "Contact {$_POST['name']} updated."];
         header("Location: home.php");
+        return;
       }
    
   } ?>

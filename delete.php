@@ -33,4 +33,6 @@ $statement = $connection->prepare("DELETE FROM contacts WHERE id = :id");
 $statement->bindParam(":id", $id);
 $statement->execute();
 
+$_SESSION["flash"] = ["message" => "Contact {$contact['name']} deleted."];
+
 header("Location: home.php");
