@@ -21,8 +21,8 @@ $contacts = $connection->query("SELECT * FROM contacts WHERE user_id = {$_SESSIO
           <?php if ($contacts->rowCount() == 0): ?>
             <div class="col-md-4 mx-auto">
               <div class="card card-body text-center">
-                <p>No contacts saved yet</p>
-                <a href="add.php">Add One!</a>
+                <p>No Existe Articulos</p>
+                <a href="add.php">Añadir Uno!</a>
               </div>
             </div>
             <?php endif ?>
@@ -32,8 +32,8 @@ $contacts = $connection->query("SELECT * FROM contacts WHERE user_id = {$_SESSIO
                 <div class="card-body">
                   <h3 class="card-title text-capitalize"><?= $contact["name"] ?></h3>
                   <p class="m-2"><?= $contact["phone_number"] ?></p>
-                  <a href="edit.php?id=<?= $contact["id"] ?>" class="btn btn-secondary mb-2">Edit Contact</a>
-                  <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Delete Contact</a>
+                  <a href="edit.php?id=<?= $contact["id"] ?>" class="btn btn-secondary mb-2">Editar Articulo</a>
+                  <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Eliminar</a>
                 </div>
               </div>
             </div>

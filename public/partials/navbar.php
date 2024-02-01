@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand font-weight-bold" href="index.php">
   <img class="mr-2" src="./static/img/logo.png" />
-  ContactsApp
+  Ciudad de latacuna online
 </a>
 <button
       class="navbar-toggler"
@@ -20,20 +20,20 @@
   <ul class="navbar-nav">
     <?php if (isset($_SESSION["user"])): ?>
       <li class="nav-item">
-        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="home.php">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./add.php">Add Contact</a>
+        <a class="nav-link" href="./add.php">Añadir Articulo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./logout.php">Logout</a>
+        <a class="nav-link" href="./logout.php">Cerrar sesión</a>
       </li>
       <?php else: ?>
       <li class="nav-item">
-        <a class="nav-link" href="register.php">Register</a>
+        <a class="nav-link" href="register.php">Únete</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./login.php">Login</a>
+        <a class="nav-link" href="./login.php">Inicia sesión</a>
       </li>
       <?php endif ?>
     </ul>

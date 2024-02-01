@@ -23,11 +23,11 @@
   <!-- Static Content -->
   <link rel="stylesheet" href="./static/css/index.css" />
   <?php $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) ?>
-  <?php if ($uri == "/contacts-app" || $uri == "/contacts-app/index.php"): ?>
+  <?php if ($uri == "/contacts-app" || $uri == "/contacts-app/public/index.php"): ?>
   <script defer src="./static/js/welcome.js"></script>
   <?php endif ?>
   
-  <title>Contacts App</title>
+  <title>ciudadelatacungaonline.com/</title>
 </head>
 <body>  
 <?php require "navbar.php" ?>

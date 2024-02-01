@@ -41,7 +41,7 @@
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card">
-            <div class="card-header">Login</div>
+            <div class="card-header">Por favor, identifíquese para acceder a esta página.</div>
             <div class="card-body">
               <?php if ($error): ?>
                 <p class="text-danger">
@@ -50,7 +50,7 @@
               <?php endif ?>
               <form method="POST" action="login.php">
                 <div class="mb-3 row">
-                  <label for="email" class="col-md-4 col-form-label text-md-end">Email</label>
+                  <label for="email" class="col-md-4 col-form-label text-md-end">Correo Electronico</label>
     
                   <div class="col-md-6">
                     <input id="email" type="email" class="form-control" name="email" autocomplete="email" autofocus>
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                  <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
+                  <label for="password" class="col-md-4 col-form-label text-md-end">Contraseña</label>
     
                   <div class="col-md-6">
                     <input id="password" type="password" class="form-control" name="password" autocomplete="password" autofocus>
@@ -67,7 +67,7 @@
     
                 <div class="mb-3 row">
                   <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                   </div>
                 </div>
               </form>
